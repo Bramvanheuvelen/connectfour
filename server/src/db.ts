@@ -27,7 +27,7 @@ class CustomNamingStrategy extends DefaultNamingStrategy implements NamingStrate
 export default () =>
   createConnection({
     type: "postgres",
-    url: process.env.DATABASE_URL || 'postgres://postgres:secret@localhost:5432/postgres',
+    url: process.env.DATABASE_URL || 'postgres://postgres:secret@localhost:5432/connectfour',
     entities: [
       User,
       Player,
@@ -38,3 +38,11 @@ export default () =>
     namingStrategy: new CustomNamingStrategy()
   })
     .then(_ => console.log('Connected to Postgres with TypeORM'))
+
+//     docker run \
+// -p 5432:5432 \
+// --name connectfour-container \
+// -e POSTGRES_PASSWORD=secret \
+// -e POSTGRES_USER=postgres \
+// -e POSTGRES_DB=connectfour \
+// -d postgres
