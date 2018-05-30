@@ -48,3 +48,8 @@ jspm_packages
 
 target
 .vscode
+
+# ignore dotenv environment variables file
+*.env
+env.ts
+env.js

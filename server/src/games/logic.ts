@@ -3,12 +3,14 @@ import { Board, Symbol, Row } from './entities'
 
 @ValidatorConstraint()
 export class IsBoard implements ValidatorConstraintInterface {
+  boardLength = 6// height of the board, number of rows
+  rowLength = 7 // width of the board, number of columns
 
   validate(board: Board) {
     const symbols = [ 'x', 'o', null ]
-    return board.length === 3 &&
+    return board.length === this.boardLength &&
       board.every(row =>
-        row.length === 3 &&
+        row.length === this.rowLength &&
         row.every(symbol => symbols.includes(symbol))
       )
   }
