@@ -38,11 +38,3 @@ export default () =>
     namingStrategy: new CustomNamingStrategy()
   })
     .then(_ => console.log('Connected to Postgres with TypeORM'))
-
-//     docker run \
-// -p 5432:5432 \
-// --name connectfour-container \
-// -e POSTGRES_PASSWORD=secret \
-// -e POSTGRES_USER=postgres \
-// -e POSTGRES_DB=connectfour \
-// -d postgres
