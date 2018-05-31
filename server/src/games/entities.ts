@@ -10,6 +10,8 @@ type Status = 'pending' | 'started' | 'finished'
 const emptyRow: Row = [null, null, null, null, null, null, null] //number of columns (default= 7)
 const emptyBoard: Board = [ emptyRow, emptyRow, emptyRow, emptyRow, emptyRow, emptyRow ] //number of rows (default= 6)
 
+
+
 @Entity()
 export class Game extends BaseEntity {
 
