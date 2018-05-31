@@ -54,3 +54,41 @@ export class Player extends BaseEntity {
   @Column('char', {length: 1})
   symbol: Symbol
 }
+
+// const createEmptyTable = () => 
+//     new Array( 7 ).fill( null ).map( 
+//         () => new Array( 6 ).fill( null ) 
+//     );
+     
+//   let table = createEmptyTable()
+
+//   const checkElements = ( [head, ...tail], matchCount = 0, lastElement = null ) => {
+//     if ( matchCount === 3 && head === lastElement ) return true;
+//     if ( tail.length === 0 ) return false;
+//     if ( head === null ) return checkElements( tail );
+//     if ( head === lastElement ) return checkElements( tail, matchCount + 1, head );
+//     return checkElements( tail, 1, head );
+// }
+
+// const checkElements = arr => /([12]),\1,\1,\1/.test( arr.toString() );
+
+// const checkColumns = table => 
+//     table.reduce( 
+//         (hasMatch, column) => {
+//             console.log( hasMatch, column );
+//             return hasMatch || checkElements( column ); 
+//         },
+//         false 
+//     );
+
+//     const checkRows = table => {
+//       for ( let i = 0; i < table[0].length; ++i ) {
+//           let rowArray = table.map( column => column[i] );
+//           if ( checkElements( rowArray ) ) return true;
+//       }
+//       return false;
+//   }
+
+//   const checkTable = table => 
+//     checkRows( table ) ||
+//     checkColumns( table );

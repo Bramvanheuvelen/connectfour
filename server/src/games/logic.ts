@@ -34,87 +34,34 @@ export const isValidTransition = (playerSymbol: Symbol, from: Board, to: Board) 
 
 export const calculateWinner = (board: Board): Symbol | null =>
   board
-    .concat(
-      // vertical winner
-      [0, 1, 2].map(n => board.map(row => row[n])) as Row[]
-      )
-    .concat(
-      [
-        // diagonal winner ltr
-        [0, 1, 2].map(n => board[n][n]),
-        // diagonal winner rtl
-        [0, 1, 2].map(n => board[2-n][n])
-      ] as Row[]
+  .concat(
+    // vertical winner
+    [0, 1, 2].map(n => board.map(row => row[n])) as Row[]
     )
-    .filter(row => row[0] && row.every(symbol => symbol === row[0]))
-    .map(row => row[0])[0] || null
+  .concat(
+    [
+      // diagonal winner ltr
+      [0, 1, 2].map(n => board[n][n]),
+      // diagonal winner rtl
+      [0, 1, 2].map(n => board[2-n][n])
+    ] as Row[]
+  )
+  .filter(row => row[0] && row.map(symbol => symbol === row[0]))
+  .map(row => row[0])[0] || null
+  
 
 export const finished = (board: Board): boolean =>
   board
     .reduce((a,b) => a.concat(b) as Row)
     .every(symbol => symbol !== null)
 
-
-    // checkVertical(board) {
-    //   // Check only if row is 3 or greater
-    //   for (let r = 3; r < 6; r++) {
-    //     for (let c = 0; c < 7; c++) {
-    //       if (board[r][c]) {
-    //         if (board[r][c] === board[r - 1][c] &&
-    //             board[r][c] === board[r - 2][c] &&
-    //             board[r][c] === board[r - 3][c]) {
-    //           return board[r][c];    
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-    
-    // checkHorizontal(board) {
-    //   // Check only if column is 3 or less
-    //   for (let r = 0; r < 6; r++) {
-    //     for (let c = 0; c < 4; c++) {
-    //       if (board[r][c]) {
-    //         if (board[r][c] === board[r][c + 1] && 
-    //             board[r][c] === board[r][c + 2] &&
-    //             board[r][c] === board[r][c + 3]) {
-    //           return board[r][c];
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-    
-    // checkDiagonalRight(board) {
-    //   // Check only if row is 3 or greater AND column is 3 or less
-    //   for (let r = 3; r < 6; r++) {
-    //     for (let c = 0; c < 4; c++) {
-    //       if (board[r][c]) {
-    //         if (board[r][c] === board[r - 1][c + 1] &&
-    //             board[r][c] === board[r - 2][c + 2] &&
-    //             board[r][c] === board[r - 3][c + 3]) {
-    //           return board[r][c];
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-    
-    // checkDiagonalLeft(board) {
-    //   // Check only if row is 3 or greater AND column is 3 or greater
-    //   for (let r = 3; r < 6; r++) {
-    //     for (let c = 3; c < 7; c++) {
-    //       if (board[r][c]) {
-    //         if (board[r][c] === board[r - 1][c - 1] &&
-    //             board[r][c] === board[r - 2][c - 2] &&
-    //             board[r][c] === board[r - 3][c - 3]) {
-    //           return board[r][c];
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-
-    // checkAll(board) {
-    //   return this.checkVertical(board) || this.checkDiagonalRight(board) || this.checkDiagonalLeft(board) || this.checkHorizontal(board) || this.checkDraw(board);
-    // }
+    // .reduce(function(prev, curr) {
+    //   //     if (prev.length && curr === prev[prev.length - 1][0]) {
+    //   //         prev[prev.length - 1].push(curr);
+    //   //     }
+    //   //     else {
+    //   //         prev.push([curr]);
+    //   //     }
+    //   //     return prev;
+    //   // }, [])
+    //   //   .map(row => row[0])[0] || null
