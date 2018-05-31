@@ -19,21 +19,21 @@ class GameDetails extends PureComponent {
 
   joinGame = () => this.props.joinGame(this.props.game.id)
 
-  makeMoven  = (toRow, toCell) => {
-    const {game, updateGame} = this.props
+  // makeMoveOld = (toRow, toCell) => {
+  //   const {game, updateGame} = this.props
 
-    const board = game.board
-    .map(
-      // iterate over all rows
-      (row, rowIndex) => row
-      // per row, iterate over all cells
-        .map((cell, cellIndex) => {
-          if (rowIndex === toRow && cellIndex === toCell) return game.turn //return the cell filled with the symbol of the one who's turn it is
-          else return cell // return the cell the way it was
-      })
-    )
-    updateGame(game.id, board)
-  }
+  //   const board = game.board
+  //   .map(
+  //     // iterate over all rows
+  //     (row, rowIndex) => row
+  //     // per row, iterate over all cells
+  //       .map((cell, cellIndex) => {
+  //         if (rowIndex === toRow && cellIndex === toCell) return game.turn //return the cell filled with the symbol of the one who's turn it is
+  //         else return cell // return the cell the way it was
+  //     })
+  //   )
+  //   updateGame(game.id, board)
+  // }
 
   // rows are rendered vertically as columns by our css, so toRow is referred to as 'toColumn'
   makeMove= (toRow, toCell) => {  // rows are rendered vertically as columns by our css
@@ -98,7 +98,7 @@ class GameDetails extends PureComponent {
       {
         game.status !== 'pending' &&
         <div className="Board-container">
-          <Board board={game.board} makeMove={this.makeMove} />
+          <Board board={game.board} makeMove={this.makeMove} hasTurn={player.symbol === game.turn}/>
         </div>
       }
     </Paper>)
