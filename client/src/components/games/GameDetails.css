@@ -22,3 +22,30 @@
   border-left: 34px solid transparent;
   border-right: 34px solid transparent;
 }
+
+.your-turn-o:after{
+  content: ' you are yellow';
+  color: yellow;
+  font-weight: bold;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+}
+
+.your-turn-x:after{
+  content: ' you are red';
+  color: red;
+  font-weight: bold;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+}
+
+.your-turn-o,
+.your-turn-x{
+  font-size: 2em;
+}

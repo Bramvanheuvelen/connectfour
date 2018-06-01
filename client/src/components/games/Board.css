@@ -35,8 +35,3 @@
  button:focus {
   outline: none;
 }
-
-.board-row:hover{
-  /* z-index: 2; */
-  background-color: rgba(95, 84, 840)
-}
