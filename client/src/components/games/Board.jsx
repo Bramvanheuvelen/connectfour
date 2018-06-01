@@ -15,7 +15,6 @@ const renderCel = (makeMove, rowIndex, cellIndex, symbol, hasTurn) => {
 export default ({board, makeMove, hasTurn}) => board
   .map((cells, rowIndex) =>
   <div key={rowIndex} className="board-row">
-    {cells 
-      .map((symbol, cellIndex) => renderCel(makeMove, rowIndex, cellIndex,symbol, hasTurn))}
+    {cells.map((symbol, cellIndex) => renderCel(makeMove, rowIndex, cellIndex, symbol, hasTurn))}
   </div>
 )
