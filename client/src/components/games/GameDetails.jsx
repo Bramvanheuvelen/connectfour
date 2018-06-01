@@ -22,7 +22,7 @@ class GameDetails extends PureComponent {
   // rows are rendered vertically as columns by our css, so toRow is graphically more like 'toColumn'
   makeMove= (toRow, toCell) => {
     const {game, updateGame} = this.props
-    
+
     const board = game.board
     // from the current row, 
     const currentRow = board[toRow]
@@ -80,6 +80,7 @@ class GameDetails extends PureComponent {
         game.status !== 'pending' &&
         <div className="Board-container">
           <Board board={game.board} makeMove={this.makeMove} hasTurn={player.symbol === game.turn}/>
+          <div className="pedestal"></div>
         </div>
       }
     </Paper>)

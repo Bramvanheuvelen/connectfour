@@ -1,13 +1,24 @@
 .outer-paper {
   margin-top: 20px;
   margin: auto;
-  padding: 20px;
-  width: 60%;
+  padding: 2px;
+  width:80%;
 }
 
 .Board-container {
-  width: 100%;
+  margin-left: 34px;
+  margin-top:1em; 
+  width: 80%;
   max-width: 25em;
-  margin: 1em auto;
+  min-width: 23em;
   background-color: #3742f1;
+  border-left: 0.1em solid #3742f1;
+}
+
+.pedestal{
+  margin-left: -34px;
+  width: 100%;
+  border-bottom: 40px solid #3742f1;
+  border-left: 34px solid transparent;
+  border-right: 34px solid transparent;
 }
