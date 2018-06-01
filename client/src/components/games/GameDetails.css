@@ -4,3 +4,10 @@
   padding: 20px;
   width: 60%;
 }
+
+.Board-container {
+  width: 100%;
+  max-width: 25em;
+  margin: 1em auto;
+  background-color: #3742f1;
+}

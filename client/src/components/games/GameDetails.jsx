@@ -19,19 +19,22 @@ class GameDetails extends PureComponent {
 
   joinGame = () => this.props.joinGame(this.props.game.id)
 
-  makeMove = (toRow, toCell) => {
+  // rows are rendered vertically as columns by our css, so toRow is graphically more like 'toColumn'
+  makeMove= (toRow, toCell) => {
     const {game, updateGame} = this.props
-
-    const board = game.board.map(
-      (row, rowIndex) => row.map((cell, cellIndex) => {
-        if (rowIndex === toRow && cellIndex === toCell) return game.turn
-        else return cell
-      })
-    )
+    
+    const board = game.board
+    // from the current row, 
+    const currentRow = board[toRow]
+    //get only the empty cells, and check the length of this array to find how many empty positions there are
+    const toCelln = currentRow.filter(cell => cell === null).length
+    // if there are no empty cells in the column, return (and allow another move)
+    if (toCelln === 0) return 
+    // fill the last empty position with the symbol of the one who's turn it is = game.turn
+    board[toRow][toCelln-1] = game.turn
+    // returns the board with the new update
     updateGame(game.id, board)
   }
-
-
 
   render() {
     const {game, users, authenticated, userId} = this.props
@@ -75,7 +78,9 @@ class GameDetails extends PureComponent {
 
       {
         game.status !== 'pending' &&
-        <Board board={game.board} makeMove={this.makeMove} />
+        <div className="Board-container">
+          <Board board={game.board} makeMove={this.makeMove} hasTurn={player.symbol === game.turn}/>
+        </div>
       }
     </Paper>)
   }
