@@ -37,13 +37,43 @@ export const calculateWinner = (board: Board): Symbol | null =>
     .concat(
       // vertical winner
       [0, 1, 2, 3].map(n => board.map(row => row[n])) as Row[]
+      // [1, 2, 3, 4].map(n => board.map(row => row[n])) as Row[],
+      // [2, 3, 4, 5].map(n => board.map(row => row[n])) as Row[]
     )
     .concat(
       [
         // diagonal winner ltr
-        [0, 1, 2, 3].map(n => board[n][n]),
-        // diagonal winner rtl
-        [0, 1, 2, 3].map(n => board[3-n][n])
+        // //index [0]
+        [0, 1, 2, 3].map(n => board[n][n] ),
+        [1, 2, 3, 4].map(n => board[n-1][n] ),
+        [2, 3, 4, 5].map(n => board[n-2][n] ),
+        [3, 4, 5, 6].map(n => board[n-3][n] ),
+        // // index [1]
+        [0, 1, 2, 3].map(n => board[n+1][n] ),
+        [1, 2, 3, 4].map(n => board[n][n] ),
+        [2, 3, 4, 5].map(n => board[n-1][n] ),
+        [3, 4, 5, 6].map(n => board[n-2][n] ),
+        // // index [2]
+        [0, 1, 2, 3].map(n => board[n+2][n] ),
+        [1, 2, 3, 4].map(n => board[n+1][n] ),
+        [2, 3, 4, 5].map(n => board[n][n] ),
+        [3, 4, 5, 6].map(n => board[n-1][n] ),
+        // // diagonal winner rtl
+        // //index [0] working
+        [0, 1, 2, 3].map(n => board[3-n][n]),
+        [1, 2, 3, 4].map(n => board[4-n][n]),
+        [2, 3, 4, 5].map(n => board[5-n][n]),
+        [3, 4, 5, 6].map(n => board[6-n][n]),
+        //index [1] working
+        [0, 1, 2, 3].map(n => board[4-n][n]),
+        [1, 2, 3, 4].map(n => board[5-n][n]),
+        [2, 3, 4, 5].map(n => board[6-n][n]),
+        [3, 4, 5, 6].map(n => board[7-n][n]),
+        //index [2] working
+        [0, 1, 2, 3].map(n => board[5-n][n]),
+        [1, 2, 3, 4].map(n => board[6-n][n]),
+        [2, 3, 4, 5].map(n => board[7-n][n]),
+        [3, 4, 5, 6].map(n => board[8-n][n])
       ] as Row[]
     )
     .filter(row => row[0] && row.every(symbol => symbol === row[0]))
