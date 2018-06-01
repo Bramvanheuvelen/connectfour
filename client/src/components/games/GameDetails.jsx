@@ -22,8 +22,8 @@ class GameDetails extends PureComponent {
   // rows are rendered vertically as columns by our css, so toRow is graphically more like 'toColumn'
   makeMove= (toRow, toCell) => {
     const {game, updateGame} = this.props
+    
     const board = game.board
-    console.log(board)
     // from the current row, 
     const currentRow = board[toRow]
     //get only the empty cells, and check the length of this array to find how many empty positions there are
