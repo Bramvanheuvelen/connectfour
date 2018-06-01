@@ -1,4 +1,4 @@
-/* create a passepartout on each tile */
+/* create a passepartout with a circular cutout on each tile */
 .board-tile{
   position:relative;
   width:5em; 
@@ -25,33 +25,10 @@
   background-color: yellow;
 }
 
-/* create a border on the left and right of the rows */
-/* 
-.other-row button:first-child,
-.last-row button:first-child{
-  width: 60px;
-  border-left: 10px solid  rgb(54, 66, 241);
-}
-.other-row button:last-child,
-.last-row button:last-child{
-  width: 60px;
-  border-right: 10px solid  rgb(54, 66, 241);
-} */
-
-/* create a 'pedestal' for the board */
-.last-row {
-  /* border-bottom: 40px solid rgb(54, 66, 241);
-  border-left: 34px solid transparent;
-  border-right: 34px solid transparent; */
-}
-/* compensate other rows for the displacement of the last row because of the pedestal */
-.other-row{
-  /* margin-left: 34px; */
-}
-.other-row,
-.last-row{
-  margin: 0 ,auto;
-  width: 14%;
-  display: inline-block;
-  vertical-align: top;
+.board-row{
+    display: inline-block;
+    vertical-align: top;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
