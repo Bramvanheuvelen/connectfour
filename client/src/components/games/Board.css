@@ -1,4 +1,4 @@
-/* create a passepartout with a circular cutout on each tile */
+/* create a passepartout on each tile */
 .board-tile{
   position:relative;
   width:5em; 
@@ -26,9 +26,17 @@
 }
 
 .board-row{
-    display: inline-block;
-    vertical-align: top;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  margin: 0 auto;
+  width: 14.25%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+ button:focus {
+  outline: none;
+}
+
+.board-row:hover{
+  /* z-index: 2; */
+  background-color: rgba(95, 84, 840)
 }
