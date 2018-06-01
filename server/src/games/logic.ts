@@ -32,6 +32,18 @@ export const isValidTransition = (playerSymbol: Symbol, from: Board, to: Board) 
     changes[0].from === null
 }
 
+// this function will render 0 if there is no winner yet, and >0 if there is a winner.
+const winnerTest = (board: Board) => {
+  // it will go over every row [ null, 'o', 'x', null, null, null, 'x']
+  board.map( row => 
+    row // and will replace each null value with '-', so they will not get lost when joining
+    .map(value => value === null ? "-" : value)  // resulting in [ '-', 'o', 'x', '-', '-', '-', 'x']  
+    .join('') // it will then join all array values into a string '-ox---x'
+    .match(/oooo|xxxx/)  // for this row-string, it checks if it has the oooo or xxxx pattern  no match will give null, a match will return the string it matched
+    ).join('') // we join the array of 'matching results' to dismiss all null values
+  .length // and measure it's length which will be 0 (no winner) or >0  winner
+}
+
 export const calculateWinner = (board: Board): Symbol | null =>
   board
     .concat(
@@ -139,6 +151,8 @@ export const calculateWinner = (board: Board): Symbol | null =>
     )
     .filter(row => row[0] && row.every(symbol => symbol === row[0]))
     .map(row => row[0])[0] || null
+
+
 
 export const finished = (board: Board): boolean =>
   board
