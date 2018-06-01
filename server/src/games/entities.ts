@@ -2,13 +2,13 @@ import { BaseEntity, PrimaryGeneratedColumn, Column, Entity, Index, OneToMany, M
 import User from '../users/entity'
 
 export type Symbol = 'x' | 'o'
-export type Row = [ Symbol | null, Symbol | null, Symbol | null, Symbol | null, Symbol | null, Symbol | null, Symbol | null] // number of columns (default= 7)
-export type Board = [ Row, Row, Row, Row , Row , Row  ] // number of rows (default= 6)
+export type Row = [ Symbol | null, Symbol | null, Symbol | null, Symbol | null, Symbol | null, Symbol | null] // number of columns (default= 7)
+export type Board = [ Row, Row, Row, Row , Row , Row, Row  ] // number of rows (default= 6)
 
 type Status = 'pending' | 'started' | 'finished'
 
-const emptyRow: Row = [null, null, null, null, null, null, null] //number of columns (default= 7)
-const emptyBoard: Board = [ emptyRow, emptyRow, emptyRow, emptyRow, emptyRow, emptyRow ] //number of rows (default= 6)
+const emptyRow: Row = [null, null, null, null, null, null] //number of columns (default= 7)
+const emptyBoard: Board = [ emptyRow, emptyRow, emptyRow, emptyRow, emptyRow, emptyRow, emptyRow ] //number of rows (default= 6)
 
 
 
